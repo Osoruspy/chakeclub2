@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- DataTables Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-success bg-light">
+      <a class="navbar-brand" href="#">CHAKE CLUB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+          aria-controls="navbarNav" aria_expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/contacto">Contacto</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 my-4 mx-auto">
+          <select id="cboClientes"></select>
+          {% comment %} <span id="spContacto"></span> {% endcomment %}
+          <br /><br />
+          <select id="cboConfecciones"></select>
+          <br /><br />
+          <!--
+          <h4 id="txtDetalle"></h4>
+          -->
+          <script src="{% static 'js/index.js' %}"></script>
+        </div>
+      </div>
+      <!--
+      <div class="col-md-12">
+        <h2>Confecciones detalles</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <th class="centrado">#</th>
+              <th class="centrado">Item</th>
+              <th class="centrado">Nombre</th>
+              <th class="centrado">Tamaño</th>
+              <th class="centrado">Genero</th>
+              <th class="centrado">Item Adicional</th>
+              <th class="centrado">Numero</th>
+              <th class="centrado">Obs</th>
+            </thead>
+            <tbody>
+              {% for c in object_list %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{c.item}}</td>
+                  <td>{{c.nombre}}</td>
+                  <td>{{c.tamano}}</td>
+                  <td>{{c.genero}}</td>
+                  <td>{{c.item_adicional}}</td>
+                  <td>{{c.numero}}</td>
+                  <td>{{c.obs}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    -->
+  </div>
+    <div class="container mt-5">
+      <h2 class="mb-4">Confecciones Detalles</h2>
+      <table id="tabla-detalles" class="table table-striped table-bordered">
+          <thead class="table-dark">
+              <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Item</th>
+                  <th>Tamaño</th>
+                  <th>Género</th>
+                  <th>Número</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Observación</th>
+              </tr>
+          </thead>
+      </table>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<!-- 
+  <script>
+      $(document).ready(function () {
+          $('#tabla-detalles').DataTable({
+              "ajax": {
+                  "url": "/",
+                  "dataSrc": "data"
+              },
+              "columns": [
+                  { "data": "id" },
+                  { "data": "nombre" },
+                  { "data": "item" },
+                  { "data": "tamano" },
+                  { "data": "genero" },
+                  { "data": "numero" },
+                  { "data": "fecha" },
+                  { "data": "estado" },
+                  { "data": "obs" }
+              ],
+              "language": {
+                  "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+              }
+          });
+      });
+  </script>
+-->
+    <!-- Boostrap 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+-->
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block title %} EDICION DE DETALLE {% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row align-items.center">
+            <div class="col-auto">
+                <h2>Edicion de detalle</h2>
+                <div>
+                    <form action="{% url "" %}" id="formuarioDetalle" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="destalles_id" value="{{ id }}">
+                        <!-- ITEM -->
+                        <div class="form-group">
+                            <label for="">Item</label>
+                            <select name="item_id" id="selectItem" class="form-control text-center">
+                                <option value="{{ item }}"></option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

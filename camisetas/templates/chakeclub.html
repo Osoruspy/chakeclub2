@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block title %} CHAKE CLUB {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="mb-4">Clientes</h2>
+        <a href="nuevoCliente/" class="btn btn-sm btn-block btn-success">Nuevo Cliente</a>
+        <select id="cboClientes" class="form-control text-center"></select>
+        <h1>Contacto</h1>
+        <select id="cboConfecciones" class="form-control text-center"></select>
+        <a href="nuevaConfeccion/1/" class="btn btn-sm btn block btn-success" id="aNuevaConfeccion">Nueva Confeccion</a>`
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+              <th class="centado">#</th>
+              <th class="centado">Nro.Contacto</th>
+              <th class="centado">Deuda</th>
+              <th class="centado">Pagado</th>
+              <th class="centado">Obs</th>
+              <th class="centado" colspan="2">Opciones</th>
+            </thead>
+            <tbody id="tbConfecciones">
+              <!-- AQUI VAN LOS DATOS DEL CLIENTE -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h2>Confecciones Detalles</h2>
+    <a href="nuevoDetalle/1/" class="btn btn-sm btn-block btn-success" id="aNuevoDetalle"><i class="fa fa-pencil-alt"></i> Nuevo Detalle</a>
+    <div class="table-responsive">
+      <table class="table table-responsive table-striped table-bordered">
+        <thead class="table-dark">
+          <th class="centrado">#</th>
+          <th class="centrado">Item</th>
+          <th class="centrado">Nombre</th>
+          <th class="centrado">Tamaño</th>
+          <th class="centrado">Genero</th>
+          <th class="centrado">Item Adicional</th>
+          <th class="centrado">Numero</th>
+          <th class="centrado">Obs</th>
+          <th class="centrado" colspan="2">Opciones</th>
+        </thead>
+        <tbody id="tbDetalles">
+          <!-- AQUI VAN LOS DETALLES DE LA CONFECCION -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

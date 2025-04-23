@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+
+{% block title %}
+  NUEVO DETALLE
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <h2>Carga de Nuevo Detalle</h2>
+        <div>
+          <form action="{% url 'registrarDetalle' %}" id="formularioDetalle" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="confecciones_id" value="{{ confecciones_id }}" />
+            <!-- ITEM -->
+            <div class="form-group">
+              <label for="">Item:</label>
+              <select id="selectItem" name="item_id" class="form-control text-center">
+                <option value="">-- Seleccione Item --</option>
+                {% for item in items %}
+                  <option value="{{ item.id }}">{{ item.nombre }}</option>
+                {% endfor %}
+              </select>
+              <!-- Iconos FontAwesome -->
+              <i class="fas fa-plus icon-button" onclick="abrirModal('/items/agregar/')"></i>
+              <i class="fas fa-pen icon-button" onclick="accionConSeleccionado('items/editar')"></i>
+              <i class="fas fa-eye icon-button" onclick="accionConSeleccionado('items/ver')"></i>
+            </div>
+            <!-- NOMBRE -->
+            <div class="form-group">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-group" id="txtNombre" name="txtNombre" maxlength="20" placeholder="Nombre" required />
+            </div>
+            <!-- TAMAÑO -->
+            <div class="form-group">
+              <label for="">Tamaño:</label>
+              <select name="tamano_id" id="selectTamano" class="form-control text-center">
+                <option value="">-- Seleccione tamaño --</option>
+                {% for tamano in tamanos %}
+                  <option value="{{ tamano.id }}">{{ tamano.nombre }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <!-- GENERO -->
+            <div class="form-group">
+              <label for="">Genero:</label>
+              <select name="genero_id" id="genero_id" class="form-control text-center">
+                <option value="">-- Seleccione genero --</option>
+                {% for codigo, nombre in genero %}
+                  <option value="{{ codigo }}">{{ nombre }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <!-- ITEM ADICIONAL -->
+            <div class="form-group">
+              <label for="">Item Adicional?:</label>
+              <select name="item_Adicional_id" id="item_Adicional_id" class="form-control text-center">
+                <option value="">-- Seleccione tiene item adicional? --</option>
+                {% for codigo, nombre in adicional %}
+                  <option value="{{ codigo }}">{{ nombre }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <!-- NUMERO -->
+            <div class="form-group">
+              <label for="">Numero:</label>
+              <input type="number" class="form-group" id="numNumero" name="numNumero" placeholder="Mumero" />
+            </div>
+            <!-- OBSERVACIONES -->
+            <label for="">Observaciones:</label>
+            <div class="form-group">
+              <input type="text" class="form-group" id="txtObs" name="txtObs" maxlength="50" placeholder="Obs" />
+            </div>
+            <div class="form-group">
+              <button type="submit" name="action" value="guardar" class="btn btn-success">Guardar</button>
+              <button type="submit" name="action" value="guardar_nuevo" class="btn btn-primary">Guardar y Agregar Nuevo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
