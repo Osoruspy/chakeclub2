@@ -13,10 +13,10 @@ urlpatterns = [
     path('nuevaConfeccion/<int:cliente_id>/', views.nuevaConfeccion, name='nuevaConfeccion'),
     path('registrarDetalle/', views.registrarDetalle, name='registrarDetalle'),
     path('nuevoDetalle/<int:confecciones_id>/', views.nuevoDetalle, name='nuevoDetalle'),
-    path('edicionDetalle/<int:detalles_id>/', views.edicionDetalle, name='edicionDetalle'),
     path('test/', lambda request: HttpResponse('Funciona')),
-    path('items/agregar/', views.ItemsCreateView.as_view(), name='items_agregar'),
-    path('items/editar/<int:pk>/', views.ItemsUpdateView.as_view(), name='teims_editar'),
-    path('items/ver/<int:pk>/', views.ItemsDetailView.as_view(), name='items_ver'),
+    path('items/agregar/', views.ItemsCreateView.as_view(), name='registro_agregar'),
+    path('items/editar/<int:pk>/', views.ItemsUpdateView.as_view(), name='registro_editar'),
+    path('items/ver/<int:pk>/', views.RegistroDetailView.as_view(), name='registro_ver'),
+
 ]
 

@@ -97,34 +97,6 @@ def get_detalles(request, confecciones_id):
 
     return JsonResponse(data)
 
-def edicionDetalle(request, detalleid):
-    detalles = list(Confecciones_detalles.objects.filter(
-        detalle_id = detalleid))
-
-    if len(detalles) > 0:
-        # data = {'message': "Success", 'detalles': detalles }
-        data = {
-            "message": "Success",
-            "detalles": [
-                {
-                    "id": d.id,
-                    "item": d.item.nombre,
-                    "nombre": d.nombre,
-                    "tamano": d.tamano.nombre,
-                    "genero": d.genero,
-                    "item_adicional": d.item_adicional,
-                    "numero": d.numero,
-                    "obs": d.obs,
-                }
-                for d in detalles
-            ]
-        }
-    else:
-        data = {'message': "Not Found"}
-
-    return JsonResponse(data)
-    
-
 def nuevoCliente(request):
     data = {
         'titulo': 'Nuevo Cliente',
@@ -236,7 +208,7 @@ class ItemsUpdateView(UpdateView):
     template_name = 'items_form.html'
     success_url = reverse_lazy('nuevoDetalle')
 
-class ItemsDetailView(DetailView):
+class RegistroDetailView(DetailView):
     model = Items
     template_name = 'items_detail.html'
 

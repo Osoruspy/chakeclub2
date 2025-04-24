@@ -21,8 +21,8 @@ const listarDetalles = async (idconfecciones) => {
                     <td>${detalles.item_adicional}</td>
                     <td>${detalles.numero}</td>
                     <td>${detalles.obs}</td>
-                    <td class="centrado"><a href="edicionDetalle/${detalles.id}/" class="btn btn-sm btn-block btn-info"><i class="fa fa-pencil-alt"></i> Editar</a></td>
-                    <td class="centrado"><a href="eliminacionDetalle/${detalles.id}/" class="btn btn-sm btn-block btn-danger btnEliminacion"><i class="fa fa-trash-alt"></i> Eliminar</a></td>
+                    <td class="centrado"><a href="edicionCurso/{{c.id}}" class="btn btn-sm btn-block btn-info"><i class="fa fa-pencil-alt"></i> Editar</a></td>
+                    <td class="centrado"><a href="eliminacionCurso/{{c.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion"><i class="fa fa-trash-alt"></i> Eliminar</a></td>
                 </tr>
             `;
             });
@@ -144,7 +144,7 @@ function cerrarModal() {
 function accionConSeleccionado(tipo) {
     const id = getSelectedId();
     if (id) {
-        abrirModal(`/items/${tipo}/${id}/`);
+        abrirModal(`/${tipo}/${id}/`);
     } else {
         alert("Selecciona un registro primero.");
     }
